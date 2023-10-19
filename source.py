@@ -50,7 +50,8 @@ while True:
     if coin.ycor() < -300 :
         x=random.randint(-280,280)
         coin.goto(x,280)
-    
+    if hunter.distance(coin) < 50 :
+        hunter.write("you capture")
     
     
 turtle.done()

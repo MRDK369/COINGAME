@@ -1,5 +1,9 @@
 import turtle
 import random
+
+score = 0
+
+
 sea=turtle.Screen()
 sea.bgpic("back.gif")
 sea.addshape("left.gif")
@@ -12,6 +16,13 @@ hunter=turtle.Turtle()
 hunter.shape("left.gif")
 hunter.penup()
 hunter.goto(0,-150)
+
+scoreboard = turtle.Turtle()
+scoreboard.penup()
+scoreboard.speed(1000)
+scoreboard.goto(-100,200)
+scoreboard.write("score : 0" , font=("courier",27,"bold"))
+scoreboard.hideturtle()
 
 coin=turtle.Turtle()
 coin.speed(1000)
@@ -51,7 +62,11 @@ while True:
         x=random.randint(-280,280)
         coin.goto(x,280)
     if hunter.distance(coin) < 50 :
-        hunter.write("you capture")
+        score = score + 1
+        scoreboard.clear()
+        scoreboard.write("score : {}". format(score),font=("courier",27,"bold"))
+        x=random.randint(-280,280)
+        coin.goto(x,280)
     
     
 turtle.done()
